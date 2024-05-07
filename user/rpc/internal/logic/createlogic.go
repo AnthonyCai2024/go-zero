@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"gozero/user/rpc/models"
 
 	"gozero/user/rpc/rpc/internal/svc"
 	"gozero/user/rpc/rpc/user"
@@ -26,5 +27,11 @@ func NewCreateLogic(ctx context.Context, svcCtx *svc.ServiceContext) *CreateLogi
 func (l *CreateLogic) Create(in *user.CreateReq) (*user.CreateResp, error) {
 	// todo: add your logic here and delete this line
 
-	return &user.CreateResp{}, nil
+	_, err := l.svcCtx.UserModel.Insert(l.ctx, &models.Users{
+		Id:    in.Id,
+		Name:  in.Name,
+		Phone: in.Phone,
+	})
+
+	return &user.CreateResp{}, err
 }

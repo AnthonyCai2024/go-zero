@@ -4,3 +4,12 @@ Etcd:
   Hosts:
   - 127.0.0.1:2379
   Key: user.rpc
+
+
+Mysql:
+  DataSource: root:mtic0756-dev@tcp(36.137.225.245:3308)/zero?charset=utf8mb4
+
+Cache:
+  - Host: 36.137.225.245:6376
+    Type: node
+    Pass: mtic0756-dev
