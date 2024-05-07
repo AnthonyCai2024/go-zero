@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "./user";
+
+// 编译命令,生成类库文件
+// copilot
+// protoc --go_out=plugins=grpc:. user.proto
+// 教程
+// protoc --go-grpc_out=:. --go_out=. ./user.proto
+// protoc --go-grpc_out=require_unimplemented_servers=false:. --go_out=. ./user.proto
+
+
+service UserService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message GetUserResponse {
+  string id = 1;
+  string name = 2;
+  string phone=3  ;
+}
