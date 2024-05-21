@@ -6,8 +6,8 @@ need_start_server_shell=(
 )
 
 for i in ${need_start_server_shell[*]} ; do
-    chmod +x "$i"
-    ./"$i"
+    chmod +x $i
+    ./$i
 done
 
 
